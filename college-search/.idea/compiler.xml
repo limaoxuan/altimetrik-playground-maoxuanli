@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="college-search-api" />
+        <module name="college-search-common" />
+        <module name="college-search-pojo" />
+        <module name="college-search-dao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="college-search" target="1.8" />
+      <module name="college-search-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="college-search" options="-parameters" />
+      <module name="college-search-api" options="-parameters" />
+      <module name="college-search-common" options="-parameters" />
+      <module name="college-search-dao" options="-parameters" />
+      <module name="college-search-pojo" options="-parameters" />
+      <module name="college-search-service" options="-parameters" />
+    </option>
+  </component>
+</project>

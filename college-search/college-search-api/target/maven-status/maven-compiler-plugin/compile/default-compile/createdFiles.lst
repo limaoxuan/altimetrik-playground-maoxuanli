@@ -1,0 +1,9 @@
+com/max/controller/SearchController.class
+com/max/config/RestTemplateConfig.class
+com/max/config/Swagger2.class
+com/max/controller/BasicController.class
+com/max/service/SearchService.class
+com/max/Application.class
+com/max/config/RestTemplateConfig$1.class
+com/max/config/CorsConfig.class
+com/max/service/impl/SearchServiceIml.class
