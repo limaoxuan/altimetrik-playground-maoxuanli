@@ -1,0 +1,72 @@
+ <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="ant-advanced-search-form">
+   <div nz-row [nzGutter]="24">
+     <nz-form-item>
+       <nz-form-label [nzSpan]="5" nzRequired nzFor="zipCode">Zip Code</nz-form-label>
+       <nz-form-control [nzSpan]="5" nzErrorTip="Please input your Zip Code!">
+         <input id="note" type="text" placeholder="zip Code" nz-input formControlName="zipCode" />
+       </nz-form-control>
+     </nz-form-item>
+
+     <nz-form-item>
+       <nz-form-label [nzSpan]="5" nzRequired nzFor="distance">Distance</nz-form-label>
+       <nz-form-control [nzSpan]="5" nzErrorTip="Please input your">
+         <input id="note" type="number" placeholder="distance" nz-input formControlName="distance" />
+       </nz-form-control>
+     </nz-form-item>
+     <nz-form-item>
+       <nz-form-label [nzSpan]="5" nzFor="predominant" nzRequired>Predominant Degree Awarded</nz-form-label>
+       <nz-form-control [nzSpan]="5" nzErrorTip="Predominant Degree Awarded!">
+         <nz-select formControlName="predominant" [(ngModel)]="listOfTagOptions" nzMode="tags"
+           [nzTokenSeparators]="[',']" nzPlaceHolder="Predominant Degree Awarded">
+           <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value">
+           </nz-option>
+         </nz-select>
+       </nz-form-control>
+     </nz-form-item>
+     <nz-form-item>
+       <nz-form-label [nzSpan]="5" nzFor="year" nzRequired>Year</nz-form-label>
+       <nz-form-control [nzSpan]="5" nzErrorTip="Year">
+         <nz-year-picker [nzFormat]="yearFormat" formControlName="year" [(ngModel)]="date"
+           (ngModelChange)="onChange($event)" nzPlaceHolder="Select year">
+         </nz-year-picker>
+       </nz-form-control>
+
+     </nz-form-item>
+   </div>
+
+   <nz-form-item>
+     <nz-form-control [nzSpan]="12" [nzOffset]="5">
+       <button nz-button nzType="primary">Search</button>
+     </nz-form-control>
+   </nz-form-item>
+ </form>
+
+ <div class="search-result-list">
+   <nz-table #ajaxTable nzShowSizeChanger [nzFrontPagination]="false" [nzLoading]="loading" nzShowSort nzSortKey="size"
+     #filterTable [nzData]="listOfDisplayData" [nzPageSize]="20"   [(nzPageIndex)]="pageIndex"
+     [nzTotal]="total" (nzPageIndexChange)="searchData()">
+     <thead (nzSortChange)="sort($event)" nzSingleSort>
+       <tr>
+         <th>
+           Name
+         </th>
+         <th nzShowSort nzSortKey="size">Size</th>
+         <th nzSortKey="id">
+           Id
+         </th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let data of filterTable.data">
+         <td>{{ data.name }}</td>
+         <td>{{ data.size }}</td>
+         <td>{{ data.id }}</td>
+       </tr>
+     </tbody>
+   </nz-table>
+ </div>
+
+
+ <div>
+  <iframe #Iframe [src]="trustUrl(googleUrl)" frameborder="0" width="100%" height="800px"></iframe>
+ </div>
